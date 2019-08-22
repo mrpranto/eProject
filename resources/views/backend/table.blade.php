@@ -4,7 +4,7 @@
 
 @section('page_header')
 
-	<i class="fa fa-tachometer"></i> Dashboard
+<i class="fa fa-tachometer"></i> Dashboard
 
 @stop
 
@@ -94,10 +94,10 @@
 										<i class="fa fa-trash"></i>
 									</button>
 
- 									<form action="{{ url('/form')}}" id="deleteCheck_1" method="POST">
-                                        @csrf
-                                        @method("DELETE")
-                                    </form>
+									<form action="{{ url('/form')}}" id="deleteCheck_1" method="POST">
+										@csrf
+										@method("DELETE")
+									</form>
 
 								</td>
 							</tr>
@@ -120,45 +120,45 @@
 
 @section('js')
 
-		<script src="{{ asset('backend/assets/js/jquery.dataTables.min.js') }}"></script>
-		<script src="{{ asset('backend/assets/js/jquery.dataTables.bootstrap.min.js') }}"></script>
-		<script src="{{ asset('backend/assets/js/dataTables.buttons.min.js') }}"></script>
-		<script src="{{ asset('backend/assets/js/buttons.flash.min.js') }}"></script>
-		<script src="{{ asset('backend/assets/js/buttons.html5.min.js') }}"></script>
-		<script src="{{ asset('backend/assets/js/buttons.print.min.js') }}"></script>
-		<script src="{{ asset('backend/assets/js/buttons.colVis.min.js') }}"></script>
-		<script src="{{ asset('backend/assets/js/dataTables.select.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/jquery.dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/buttons.colVis.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/dataTables.select.min.js') }}"></script>
 
 
-		<!-- ace scripts -->
-		<script src="{{ asset('backend/assets/js/ace-elements.min.js') }}"></script>
-		<script src="{{ asset('backend/assets/js/ace.min.js') }}"></script>
+<!-- ace scripts -->
+<script src="{{ asset('backend/assets/js/ace-elements.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/ace.min.js') }}"></script>
 
-		<!-- inline scripts related to this page -->
-		<script type="text/javascript">
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
 
-			   function delete_check(id)
-		        {
+	function delete_check(id)
+	{
 
-					Swal.fire({
-					  title: 'Are you sure?',
-					  text: "You won't be able to revert this!",
-					  type: 'warning',
-					  showCancelButton: true,
-					  confirmButtonColor: '#3085d6',
-					  cancelButtonColor: '#d33',
-					  confirmButtonText: 'Yes, delete it!'
-					}).then((result) => {
-					  if (result.value) {
-					    
-				            $('#deleteCheck_'+id).submit();;    
-					  }
-					})
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+			if (result.value) {
+				
+				$('#deleteCheck_'+id).submit();;    
+			}
+		})
 
-		        }
+	}
 
 
-			jQuery(function($) {
+	jQuery(function($) {
 				//initiate dataTables plugin
 				var myTable = 
 				$('#dynamic-table')
@@ -166,9 +166,9 @@
 				.DataTable( {
 					bAutoWidth: false,
 					"aoColumns": [
-					  { "bSortable": false },
-					  null, null,null, null, null,
-					  { "bSortable": false }
+					{ "bSortable": false },
+					null, null,null, null, null,
+					{ "bSortable": false }
 					],
 					"aaSorting": [],
 					
@@ -176,64 +176,64 @@
 					//"bProcessing": true,
 			        //"bServerSide": true,
 			        //"sAjaxSource": "http://127.0.0.1/table.php"	,
-			
+			        
 					//,
 					//"sScrollY": "200px",
 					//"bPaginate": false,
-			
+					
 					//"sScrollX": "100%",
 					//"sScrollXInner": "120%",
 					//"bScrollCollapse": true,
 					//Note: if you are applying horizontal scrolling (sScrollX) on a ".table-bordered"
 					//you may want to wrap the table inside a "div.dataTables_borderWrap" element
-			
+					
 					//"iDisplayLength": 50
-			
-			
+					
+					
 					select: {
 						style: 'multi'
 					}
-			    } );
-			
+				} );
+				
 				
 				
 				$.fn.dataTable.Buttons.defaults.dom.container.className = 'dt-buttons btn-overlap btn-group btn-overlap';
 				
 				new $.fn.dataTable.Buttons( myTable, {
 					buttons: [
-					  {
+					{
 						"extend": "colvis",
 						"text": "<i class='fa fa-search bigger-110 blue'></i> <span class='hidden'>Show/hide columns</span>",
 						"className": "btn btn-white btn-primary btn-bold",
 						columns: ':not(:first):not(:last)'
-					  },
-					  {
+					},
+					{
 						"extend": "copy",
 						"text": "<i class='fa fa-copy bigger-110 pink'></i> <span class='hidden'>Copy to clipboard</span>",
 						"className": "btn btn-white btn-primary btn-bold"
-					  },
-					  {
+					},
+					{
 						"extend": "csv",
 						"text": "<i class='fa fa-database bigger-110 orange'></i> <span class='hidden'>Export to CSV</span>",
 						"className": "btn btn-white btn-primary btn-bold"
-					  },
-					  {
+					},
+					{
 						"extend": "excel",
 						"text": "<i class='fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Export to Excel</span>",
 						"className": "btn btn-white btn-primary btn-bold"
-					  },
-					  {
+					},
+					{
 						"extend": "pdf",
 						"text": "<i class='fa fa-file-pdf-o bigger-110 red'></i> <span class='hidden'>Export to PDF</span>",
 						"className": "btn btn-white btn-primary btn-bold"
-					  },
-					  {
+					},
+					{
 						"extend": "print",
 						"text": "<i class='fa fa-print bigger-110 grey'></i> <span class='hidden'>Print</span>",
 						"className": "btn btn-white btn-primary btn-bold",
 						autoPrint: false,
 						message: 'This print was produced using the Print button for DataTables'
-					  }		  
+					}		  
 					]
 				} );
 				myTable.buttons().container().appendTo( $('.tableTools-container') );
@@ -259,9 +259,9 @@
 					}
 					$('.dt-button-collection').appendTo('.tableTools-container .dt-buttons')
 				});
-			
+				
 				////
-			
+				
 				setTimeout(function() {
 					$($('.tableTools-container')).find('a.dt-button').each(function() {
 						var div = $(this).find(' > div').first();
@@ -284,10 +284,10 @@
 						$( myTable.row( index ).node() ).find('input:checkbox').prop('checked', false);
 					}
 				} );
-			
-			
-			
-			
+				
+				
+				
+				
 				/////////////////////////////////
 				//table checkboxes
 				$('th input[type=checkbox], td input[type=checkbox]').prop('checked', false);
@@ -309,9 +309,9 @@
 					if(this.checked) myTable.row(row).deselect();
 					else myTable.row(row).select();
 				});
-			
-			
-			
+				
+				
+				
 				$(document).on('click', '#dynamic-table .dropdown-toggle', function(e) {
 					e.stopImmediatePropagation();
 					e.stopPropagation();
@@ -340,9 +340,9 @@
 					if(this.checked) $row.addClass(active_class);
 					else $row.removeClass(active_class);
 				});
-			
 				
-			
+				
+				
 				/********************************/
 				//add tooltip for small view action buttons in dropdown menu
 				$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
@@ -353,10 +353,10 @@
 					var $parent = $source.closest('table')
 					var off1 = $parent.offset();
 					var w1 = $parent.width();
-			
+					
 					var off2 = $source.offset();
 					//var w2 = $source.width();
-			
+					
 					if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
 					return 'left';
 				}
@@ -387,10 +387,10 @@
 				  }
 				).css('padding-top', '12px');
 				*/
-			
-			
+				
+				
 			})
 		</script>
 
 
-@stop
+		@stop

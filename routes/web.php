@@ -27,6 +27,10 @@ Route::get('/table', function () {
     return view('backend.table');
 });
 
+Route::get('/admin/login', function () {
+    return view('backend.login');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

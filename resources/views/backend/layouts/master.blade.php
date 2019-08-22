@@ -97,12 +97,12 @@
 		        });
 
 
-			   swal.fire({
-		            title: "Error!",
-		            text: "Your Error is show",
-		            type: "error",
-		            timer: 3000
-		        });
+			   // swal.fire({
+		    //         title: "Error!",
+		    //         text: "Your Error is show",
+		    //         type: "error",
+		    //         timer: 3000
+		    //     });
 
 
 		</script>
